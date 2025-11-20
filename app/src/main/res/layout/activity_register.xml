@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_gradient">
 
-    <!-- Logo -->
-    <!-- Added top constraint and margin to fix "Not constrained vertically" error while keeping position -->
+    <!-- Header Wave Background -->
+
+    <!-- Back Button -->
     <ImageView
-        android:id="@+id/logo_image"
-        android:layout_width="174dp"
-        android:layout_height="187dp"
-        android:layout_marginTop="73dp"
-        android:contentDescription="@string/desc_logo"
-        android:src="@drawable/logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        android:id="@+id/button_back"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/desc_back_button"
+        android:padding="12dp"
+        android:src="@drawable/ic_back_arrow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,8 +26,7 @@
         android:layout_height="0dp"
         android:layout_marginBottom="24dp"
         android:fillViewport="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo_image">
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -42,38 +41,70 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="582dp"
-                android:paddingBottom="50dp">
+                android:layout_height="734dp"
+                android:paddingBottom="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5">
 
-                <TextView
-                    android:id="@+id/title_login"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:text="@string/title_welcome"
-                    android:textColor="#6D44E6"
-                    android:textSize="28sp"
-                    android:textStyle="bold"
+                <!-- Logo Inside Container -->
+                <ImageView
+                    android:id="@+id/logo_image"
+                    android:layout_width="123dp"
+                    android:layout_height="116dp"
+                    android:layout_marginTop="32dp"
+                    android:contentDescription="@string/desc_app_logo"
+                    android:src="@drawable/logo"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <TextView
+                    android:id="@+id/title_register"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/title_register"
+                    android:textColor="#673AB7"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/logo_image" />
+
                 <EditText
-                    android:id="@+id/input_username"
+                    android:id="@+id/input_full_name"
                     android:layout_width="0dp"
                     android:layout_height="55dp"
                     android:layout_marginHorizontal="32dp"
-                    android:layout_marginTop="40dp"
-                    android:autofillHints="username"
+                    android:layout_marginTop="32dp"
+                    android:autofillHints="name"
                     android:background="@drawable/rounded_button_outline_blue"
-                    android:hint="@string/hint_username"
+                    android:hint="@string/hint_full_name"
                     android:inputType="textPersonName"
                     android:padding="16dp"
                     android:textColor="#333333"
                     android:textColorHint="#999999"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/title_login" />
+                    app:layout_constraintTop_toBottomOf="@id/title_register" />
+
+                <EditText
+                    android:id="@+id/input_email"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_marginHorizontal="32dp"
+                    android:layout_marginTop="20dp"
+                    android:autofillHints="emailAddress"
+                    android:background="@drawable/rounded_button_outline_blue"
+                    android:hint="@string/hint_email"
+                    android:inputType="textEmailAddress"
+                    android:padding="16dp"
+                    android:textColor="#333333"
+                    android:textColorHint="#999999"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/input_full_name" />
 
                 <EditText
                     android:id="@+id/input_password"
@@ -83,8 +114,6 @@
                     android:layout_marginTop="20dp"
                     android:autofillHints="password"
                     android:background="@drawable/rounded_button_outline_blue"
-                    android:drawableEnd="@android:drawable/ic_menu_view"
-                    android:drawableTint="#999999"
                     android:hint="@string/hint_password"
                     android:inputType="textPassword"
                     android:padding="16dp"
@@ -92,72 +121,66 @@
                     android:textColorHint="#999999"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/input_username" />
+                    app:layout_constraintTop_toBottomOf="@id/input_email" />
 
-                <RadioButton
-                    android:id="@+id/radio_remember"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="1dp"
-                    android:text="@string/label_remember_me"
-                    android:textColor="#666666"
+                <EditText
+                    android:id="@+id/input_confirm_password"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_marginHorizontal="32dp"
+                    android:layout_marginTop="20dp"
+                    android:autofillHints="password"
+                    android:background="@drawable/rounded_button_outline_blue"
+                    android:hint="@string/hint_confirm_password"
+                    android:inputType="textPassword"
+                    android:padding="16dp"
+                    android:textColor="#333333"
+                    android:textColorHint="#999999"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/input_password" />
 
-                <TextView
-                    android:id="@+id/text_forgot_password"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="33dp"
-                    android:text="@string/action_forgot_password"
-                    android:textColor="#666666"
-                    android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/input_password" />
-
                 <Button
-                    android:id="@+id/button_login"
+                    android:id="@+id/button_register"
                     android:layout_width="0dp"
                     android:layout_height="55dp"
                     android:layout_marginHorizontal="32dp"
                     android:layout_marginTop="30dp"
                     android:background="@drawable/rounded_button_outline_blue"
-                    android:text="@string/action_login_btn"
+                    android:text="@string/action_register"
                     android:textAllCaps="false"
-                    android:textColor="#DCD5E6"
+                    android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/radio_remember" />
+                    app:layout_constraintTop_toBottomOf="@id/input_confirm_password" />
 
                 <TextView
-                    android:id="@+id/text_new_user"
+                    android:id="@+id/text_existing_user"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="@string/text_new_user"
+                    android:text="@string/text_already_have_account"
                     android:textColor="#666666"
                     android:textSize="14sp"
-                    app:layout_constraintEnd_toStartOf="@id/text_signup"
+                    app:layout_constraintEnd_toStartOf="@id/text_login"
                     app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/button_login" />
+                    app:layout_constraintTop_toBottomOf="@id/button_register" />
 
                 <TextView
-                    android:id="@+id/text_signup"
+                    android:id="@+id/text_login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="@string/action_sign_up"
-                    android:textColor="#4646A8"
+                    android:text="@string/action_login"
+                    android:textColor="#0D0DAB"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/text_new_user"
-                    app:layout_constraintTop_toBottomOf="@id/button_login" />
+                    app:layout_constraintStart_toEndOf="@id/text_existing_user"
+                    app:layout_constraintTop_toBottomOf="@id/button_register" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

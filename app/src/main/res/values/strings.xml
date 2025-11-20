@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">LoginFormPractice</string>
+    <string name="desc_logo">App Logo</string>
+    <string name="title_welcome">Welcome!</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="label_remember_me">Remember me</string>
+    <string name="action_forgot_password">Forget password?</string>
+    <string name="action_login_btn">Login</string>
+    <string name="text_new_user">"New user? "</string>
+    <string name="action_sign_up">Sign Up</string>
+    <string name="desc_back_button">Back button</string>
+    <string name="desc_app_logo">Application Logo</string>
+    <string name="title_register">Register</string>
+    <string name="hint_full_name">Full Name</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_confirm_password">Confirm Password</string>
+    <string name="action_register">Register</string>
+    <string name="text_already_have_account">"Already have an account? "</string>
+    <string name="action_login">Login</string>
 </resources>
