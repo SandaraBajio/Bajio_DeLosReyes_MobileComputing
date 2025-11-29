@@ -2,8 +2,11 @@ package com.example.loginformpractice
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class RegisterActivity : AppCompatActivity() {
@@ -11,24 +14,52 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        // 1. Find the Back Button by its ID (from activity_register.xml)
-        val backButton = findViewById<ImageView>(R.id.button_back)
+        val inputFullName = findViewById<EditText>(R.id.input_full_name)
+        val inputEmail = findViewById<EditText>(R.id.input_email)
+        val inputPassword = findViewById<EditText>(R.id.input_password)
+        val inputConfirmPassword = findViewById<EditText>(R.id.input_confirm_password)
+        val buttonRegister = findViewById<Button>(R.id.button_register)
+        val textLogin = findViewById<TextView>(R.id.text_login)
+        val buttonBack = findViewById<ImageView>(R.id.button_back)
 
-        // 2. Find the Login Text by its ID (from activity_register.xml)
-        val loginText = findViewById<TextView>(R.id.text_login)
-
-        // 3. Make the Back Button go to MainActivity
-        backButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish() // Closes the Register screen
+        buttonBack.setOnClickListener {
+            finish() // Goes back to the previous activity
         }
 
-        // 4. Make the "Login" text at the bottom go to MainActivity
-        loginText.setOnClickListener {
+        textLogin.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
+            // Clear the back stack so the user can't go back to RegisterActivity with back button
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
-            finish() // Closes the Register screen
+            finish()
+        }
+
+        buttonRegister.setOnClickListener {
+            val fullName = inputFullName.text.toString().trim()
+            val email = inputEmail.text.toString().trim()
+            val password = inputPassword.text.toString().trim()
+            val confirmPassword = inputConfirmPassword.text.toString().trim()
+            var isValid = true
+
+            if (fullName.isEmpty()) {
+                inputFullName.error = getString(R.string.error_empty_name)
+                isValid = false
+            }
+
+            if (email.isEmpty()) {
+                inputEmail.error = getString(R.string.error_empty_email)
+                isValid = false
+            }
+
+            if (password.isEmpty()) {
+                inputPassword.error = getString(R.string.error_empty_password)
+                isValid = false
+            }
+
+            if (isValid) {
+                 // Proceed with registration (e.g., show a toast for now)
+                 Toast.makeText(this, "Registration Successful!", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }

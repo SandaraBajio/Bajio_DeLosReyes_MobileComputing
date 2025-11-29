@@ -5,11 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_gradient">
 
-    <!-- Header Wave Background -->
-
     <!-- Back Button -->
-
-    <!-- Scrollable White Rounded Container -->
     <ImageView
         android:id="@+id/button_back"
         android:layout_width="48dp"
@@ -22,12 +18,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Scrollable White Rounded Container -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="24dp"
         android:fillViewport="true"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_back">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -42,11 +40,8 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="734dp"
-                android:paddingBottom="30dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.5">
+                android:layout_height="wrap_content"
+                android:paddingBottom="30dp">
 
                 <!-- Logo Inside Container -->
                 <ImageView
@@ -73,6 +68,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/logo_image" />
 
+                <!-- Added paddingEnd to make room for error icon -->
                 <EditText
                     android:id="@+id/input_full_name"
                     android:layout_width="0dp"
@@ -84,12 +80,14 @@
                     android:hint="@string/hint_full_name"
                     android:inputType="textPersonName"
                     android:padding="16dp"
+                    android:paddingEnd="40dp"
                     android:textColor="#333333"
                     android:textColorHint="#999999"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/title_register" />
 
+                <!-- Added paddingEnd to make room for error icon -->
                 <EditText
                     android:id="@+id/input_email"
                     android:layout_width="0dp"
@@ -101,12 +99,14 @@
                     android:hint="@string/hint_email"
                     android:inputType="textEmailAddress"
                     android:padding="16dp"
+                    android:paddingEnd="40dp"
                     android:textColor="#333333"
                     android:textColorHint="#999999"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/input_full_name" />
 
+                <!-- Added paddingEnd to make room for error icon -->
                 <EditText
                     android:id="@+id/input_password"
                     android:layout_width="0dp"
@@ -118,12 +118,14 @@
                     android:hint="@string/hint_password"
                     android:inputType="textPassword"
                     android:padding="16dp"
+                    android:paddingEnd="40dp"
                     android:textColor="#333333"
                     android:textColorHint="#999999"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/input_email" />
 
+                <!-- Added paddingEnd to make room for error icon -->
                 <EditText
                     android:id="@+id/input_confirm_password"
                     android:layout_width="0dp"
@@ -135,6 +137,7 @@
                     android:hint="@string/hint_confirm_password"
                     android:inputType="textPassword"
                     android:padding="16dp"
+                    android:paddingEnd="40dp"
                     android:textColor="#333333"
                     android:textColorHint="#999999"
                     app:layout_constraintEnd_toEndOf="parent"
